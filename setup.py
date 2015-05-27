@@ -46,6 +46,7 @@ setup(
     url='https://github.com/2degrees/twapi-authn/',
     license='BSD (http://dev.2degreesnetwork.com/p/2degrees-license.html)',
     packages=find_packages(exclude=['tests']),
+    namespace_packages=['twapi'],
     install_requires=[
         'twapi-connection == 1.0a1',
         ],
