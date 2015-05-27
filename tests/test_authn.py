@@ -1,16 +1,32 @@
+##############################################################################
+#
+# Copyright (c) 2015, 2degrees Limited.
+# All Rights Reserved.
+#
+# This file is part of twapi-authn
+# <https://github.com/2degrees/twapi-authn>, which is subject to the
+# provisions of the BSD at
+# <http://dev.2degreesnetwork.com/p/2degrees-license.html>. A copy of the
+# license should accompany this distribution. THIS SOFTWARE IS PROVIDED "AS IS"
+# AND ANY AND ALL EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED, INCLUDING, BUT
+# NOT LIMITED TO, THE IMPLIED WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST
+# INFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+
 from nose.tools import assert_false
 from nose.tools import assert_raises
 from nose.tools import eq_
 from nose.tools import ok_
+from twapi.connection.exc import NotFoundError
+from twapi.connection.testing import MockConnection
+from twapi.connection.testing import SuccessfulAPICall
+from twapi.connection.testing import UnsuccessfulAPICall
 
 from tests.utils import get_uuid4_str
 from twapi.authn import AccessTokenError
 from twapi.authn import claim_access_token
 from twapi.authn import is_session_active
-from twapi.exc import NotFoundError
-from twapi.testing import MockConnection
-from twapi.testing import SuccessfulAPICall
-from twapi.testing import UnsuccessfulAPICall
 
 
 class TestAuthnTokenClaiming(object):
