@@ -14,7 +14,7 @@
 #
 ##############################################################################
 
-from twapi.connection.exc import NotFoundError
+from twapi_connection.exc import NotFoundError
 
 
 class AccessTokenError(NotFoundError):

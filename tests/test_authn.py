@@ -18,15 +18,15 @@ from nose.tools import assert_false
 from nose.tools import assert_raises
 from nose.tools import eq_
 from nose.tools import ok_
-from twapi.connection.exc import NotFoundError
-from twapi.connection.testing import MockConnection
-from twapi.connection.testing import SuccessfulAPICall
-from twapi.connection.testing import UnsuccessfulAPICall
 
 from tests.utils import get_uuid4_str
-from twapi.authn import AccessTokenError
-from twapi.authn import claim_access_token
-from twapi.authn import is_session_active
+from twapi_authn import AccessTokenError
+from twapi_authn import claim_access_token
+from twapi_authn import is_session_active
+from twapi_connection.exc import NotFoundError
+from twapi_connection.testing import MockConnection
+from twapi_connection.testing import SuccessfulAPICall
+from twapi_connection.testing import UnsuccessfulAPICall
 
 
 class TestAuthnTokenClaiming(object):
