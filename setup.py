@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2015, 2degrees Limited.
+# Copyright (c) 2015-2016, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of twapi-authn
@@ -17,7 +17,6 @@
 import os
 
 from setuptools import setup
-
 
 _CURRENT_DIR_PATH = os.path.abspath(os.path.dirname(__file__))
 _README_CONTENTS = open(os.path.join(_CURRENT_DIR_PATH, 'README.rst')).read()
@@ -38,12 +37,17 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3 :: Only',
-        ],
+    ],
     keywords='2degrees',
     author='2degrees Limited',
     author_email='2degrees-floss@googlegroups.com',
     url='https://github.com/2degrees/twapi-authn/',
     license='BSD (http://dev.2degreesnetwork.com/p/2degrees-license.html)',
     py_modules=['twapi_authn'],
+    install_requires=[
+        'twapi-connection >= 1.1a2',
+        'pyrecord >= 1.0a1',
+        'voluptuous >= 0.8.7',
+    ],
     test_suite='nose.collector',
-    )
+)

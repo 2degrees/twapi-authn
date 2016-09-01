@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2015, 2degrees Limited.
+# Copyright (c) 2015-2016, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of twapi-authn
@@ -24,7 +24,7 @@ from twapi_authn import AccessTokenError
 from twapi_authn import claim_access_token
 from twapi_authn import is_session_active
 from twapi_connection.exc import NotFoundError
-from twapi_connection.testing import MockConnection
+from twapi_connection.testing import MockConnection, MockResponse
 from twapi_connection.testing import SuccessfulAPICall
 from twapi_connection.testing import UnsuccessfulAPICall
 
@@ -39,7 +39,7 @@ class TestAuthnTokenClaiming(object):
         api_call = SuccessfulAPICall(
             path_info,
             'POST',
-            response_body_deserialization=expected_user_id,
+            response=MockResponse(expected_user_id),
             )
         with _make_connection(api_call) as connection:
             user_id = claim_access_token(connection, access_token)
@@ -68,7 +68,7 @@ class TestSessionIsActive(object):
         api_call = SuccessfulAPICall(
             path_info,
             'HEAD',
-            response_body_deserialization=None,
+            response=MockResponse(None),
             )
         with _make_connection(api_call) as connection:
             is_active = is_session_active(connection, access_token)

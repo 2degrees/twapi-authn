@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2015, 2degrees Limited.
+# Copyright (c) 2015-2016, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of twapi-authn
@@ -29,9 +29,11 @@ def claim_access_token(connection, access_token):
     """
     path_info = '/sessions/{}/'.format(access_token)
     try:
-        user_id = connection.send_post_request(path_info)
+        response = connection.send_post_request(path_info)
     except NotFoundError:
         raise AccessTokenError()
+    else:
+        user_id = response.json()
 
     return user_id
 
